@@ -14,6 +14,22 @@ By default, http listener are created to forward to target group but https can b
 ## Example
 
 ```tf
+#### VPC 
+module "networking" {
+    source = "github.com/Jareechang/tf-modules//networking?ref=v1.0.0"
+    env = var.env
+    project_id = var.project_id
+    subnet_public_cidrblock = [
+        "10.0.1.0/24",
+        "10.0.2.0/24"
+    ]
+    subnet_private_cidrblock = [
+        "10.0.11.0/24",
+        "10.0.22.0/24"
+    ]
+    azs = ["us-east-1a", "us-east-1b"]
+}
+
 #### Target group 
 module "ecs_tg" {
     source              = "github.com/Jareechang/tf-modules//alb?ref=v1.0.2"
