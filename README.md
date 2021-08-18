@@ -18,6 +18,6 @@ git push --follow-tags
 
 ```tf
 module "networking" {
-  source = "github.com/Jareechang/tf-modules/networking?ref=v1.0.1"
+  source = "github.com/Jareechang/tf-modules//networking?ref=v1.0.1"
 }
 ```
