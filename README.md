@@ -4,7 +4,7 @@ A few re-usable TF modules to speed up the dev process.
 
 ### Modules 
 
-- [Networking](./networking/README.MD)
+- [Networking](./networking/README.md)
 
 
 ### Versioning with tags
