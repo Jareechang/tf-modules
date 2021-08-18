@@ -5,6 +5,7 @@ A few re-usable TF modules to speed up the dev process.
 ### Modules 
 
 - [Networking](./networking/README.md)
+- [ALB](./alb/README.md)
 - **IAM**  
   - [ECR](./iam/ecr/README.md)
   - [ECS](./iam/ecs/README.md)
