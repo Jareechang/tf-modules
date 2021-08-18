@@ -16,7 +16,7 @@ By default, http listener are created to forward to target group but https can b
 ```tf
 #### Target group 
 module "ecs_tg" {
-    source              = "./modules/alb"
+    source              = "github.com/Jareechang/tf-modules//networking?ref=v1.0.2"
     create_target_group = true
     port                = 80
     protocol            = "HTTP"
@@ -26,7 +26,7 @@ module "ecs_tg" {
 
 #### ALB 
 module "alb" {
-    source             = "./modules/alb"
+    source              = "github.com/Jareechang/tf-modules//networking?ref=v1.0.2"
     create_alb         = true
     enable_https       = false
     internal           = false
