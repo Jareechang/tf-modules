@@ -1,7 +1,11 @@
 variable "project_id" {
   type = string
-  default = "web-dev"
   description = "The unique project ID this resource applies to"
+}
+
+variable "arn_suffix" {
+  type = string
+  description = "The Loadbalancer Arn Suffix for cloudwatch metrics"
 }
 
 variable "evaluation_periods" {

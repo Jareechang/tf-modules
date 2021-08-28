@@ -25,7 +25,7 @@ resource "aws_cloudwatch_metric_alarm" "this" {
       unit        = "Count"
 
       dimensions = {
-        LoadBalancer = module.alb.lb.arn_suffix
+        LoadBalancer = var.arn_suffix
       }
     }
   }
@@ -40,7 +40,7 @@ resource "aws_cloudwatch_metric_alarm" "this" {
       unit        = "Count"
 
       dimensions = {
-        LoadBalancer = module.alb.lb.arn_suffix
+        LoadBalancer = var.arn_suffix
       }
     }
   }

@@ -17,10 +17,11 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | alarm\_actions | List of resources to trigger during alarm state | `list(string)` | `[]` | no |
+| arn\_suffix | The Loadbalancer Arn Suffix for cloudwatch metrics | `string` | n/a | yes |
 | evaluation\_periods | The evaluation periods for this alarm | `string` | `"1"` | no |
 | insufficient\_data\_actions | List of resources to trigger during insufficient data state | `list(string)` | `[]` | no |
 | ok\_actions | List of resources to trigger during ok state | `list(string)` | `[]` | no |
-| project\_id | The unique project ID this resource applies to | `string` | `"web-dev"` | no |
+| project\_id | The unique project ID this resource applies to | `string` | n/a | yes |
 | threshold | The threshold to check against | `string` | `"10"` | no |
 
 ## Outputs
