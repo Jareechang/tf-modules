@@ -11,7 +11,7 @@ A few re-usable TF modules to speed up the dev process.
   - [ECS](./iam/ecs/README.md)
 - **Cloudwatch**   
   - **Alarms:**  
-    - [ALB - Http error rate](./cloudwatch/alarms/alb-http-5xx/README.md)
+    - [ALB - Http error rate](./cloudwatch/alarms/alb-http-errors/README.md)
 
 ### Versioning with tags
 
