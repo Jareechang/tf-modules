@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_metric_alarm" "this" {
-  alarm_name                = "http-target-error-rate"
+  alarm_name                = "${var.project_id}-http-target-error-rate"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = var.evaluation_periods
   threshold                 = var.threshold
