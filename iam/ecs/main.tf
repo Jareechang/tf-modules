@@ -17,9 +17,9 @@ data "aws_iam_policy_document" "ecs_execution" {
         ]
     }
 
-    ## Extensions
+    ## Extend with iam permission statements
     dynamic "statement" {
-        for_each = var.ecs_execution_policies_extension
+        for_each = var.ecs_execution_other_iam_statements
         content {
             actions   = statement.value["actions"]
             effect    = statement.value["effect"]

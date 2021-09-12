@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "ci_server_access" {
             "ecr:PutImage"
         ]
         effect = "Allow"
-        resources = var.ecr_resource_arns 
+        resources = var.ecr_resource_arns
     }
     statement {
         actions = [
@@ -65,6 +65,16 @@ data "aws_iam_policy_document" "ci_server_access" {
         resources = [
             "*"
         ]
+    }
+
+    ## Extend with iam permission statements
+    dynamic "statement" {
+        for_each = var.other_iam_statements
+        content {
+            actions   = statement.value["actions"]
+            effect    = statement.value["effect"]
+            resources = statement.value["resources"]
+        }
     }
 }
 

@@ -17,7 +17,16 @@ variable "create_ci_user" {
 }
 
 variable "ecr_resource_arns" {
-    type = list(string) 
-    default = [""] 
+    type = list(string)
+    default = [""]
     description = "The target ECR arn to add permissions to"
+}
+
+variable "other_iam_statements" {
+    type = map(object({
+        actions   = list(string)
+        effect    = string
+        resources = list(string)
+    }))
+    description = "Additional iam permission statement to be added"
 }

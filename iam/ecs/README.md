@@ -66,7 +66,7 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | create\_ecs\_execution\_role | Create an ECS execution role | `bool` | n/a | yes |
 | create\_ecs\_task\_role | Create an ECS task role | `bool` | n/a | yes |
-| ecs\_execution\_policies\_extension | Additional ECS execution policies to be added | <pre>map(object({<br>        actions   = list(string)<br>        effect    = string<br>        resources = list(string)<br>    }))</pre> | n/a | yes |
+| ecs\_execution\_other\_iam\_statements | Additional ECS execution iam permission statement to be added | <pre>map(object({<br>        actions   = list(string)<br>        effect    = string<br>        resources = list(string)<br>    }))</pre> | n/a | yes |
 
 ## Outputs
 
@@ -74,4 +74,3 @@ No requirements.
 |------|-------------|
 | ecs\_execution\_role\_arn | n/a |
 | ecs\_task\_role\_arn | n/a |
-
