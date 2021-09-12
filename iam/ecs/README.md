@@ -16,12 +16,12 @@ Both are optionally created with a boolean parameter provided to the module.
 ```tf
 ## ECS Execution and Task roles
 module "ecs_roles" {
-    source                    = "github.com/Jareechang/tf-modules//iam/ecs?ref=v1.0.1"
+    source                    = "github.com/Jareechang/tf-modules//iam/ecs?ref=v1.0.7"
     create_ecs_execution_role = true
     create_ecs_task_role      = true
 
     # Extend baseline policy statements
-    ecs_execution_policies_extension = {
+     ecs_execution_other_iam_statements = {
         ssm = {
             actions = [
                 "ssm:GetParameter",
