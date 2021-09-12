@@ -44,4 +44,6 @@ No requirements.
 
 ## Outputs
 
-No output.
+| Name | Description |
+|------|-------------|
+| name | Name of the alarm |
