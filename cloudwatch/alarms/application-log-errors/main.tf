@@ -23,7 +23,7 @@ resource "aws_cloudwatch_metric_alarm" "error_log_alarm" {
   metric_query {
     id          = "e1"
     expression  = "m2/m1*100"
-    label       = "Application Error Rate (>= ${threshold})"
+    label       = "Application Error Rate (>= ${var.threshold})"
     return_data = "true"
   }
 
