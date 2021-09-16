@@ -7,6 +7,7 @@ resource "aws_cloudwatch_log_metric_filter" "this" {
     namespace     = var.metric_namespace
     value         = "1"
     default_value = "0"
+    unit          = "Count"
   }
 }
 

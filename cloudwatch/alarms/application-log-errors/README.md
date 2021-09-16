@@ -1,6 +1,8 @@
-# AWS Applicaiton Errors rate
+# AWS Application Errors rate
 
-A module for handling application error logs and alarming on them based on thresholds.
+A module for converting cloudwatch logs into metrics (event count) based on patterns filters, and alarming on them if they pass a certain threshold (a percentage relative to total request from ALB - 10%, 25%, ... error threshold).
+
+application error logs in cloudwatch and alarming on them based on thresholds.
 
 - [Example](#example)
 - [Requirements](#requirements)
@@ -12,7 +14,7 @@ A module for handling application error logs and alarming on them based on thres
 
 ```tf
 module "application_error_alarm" {
-    source             = "github.com/Jareechang/tf-modules//cloudwatch/alarms/application-log-errors?ref=v1.0.9"
+    source             = "github.com/Jareechang/tf-modules//cloudwatch/alarms/application-log-errors?ref=v1.0.12"
     evaluation_periods = "2"
     threshold          = "10"
     arn_suffix         = aws_lb.arn_suffix 
