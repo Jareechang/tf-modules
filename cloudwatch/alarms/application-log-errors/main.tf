@@ -13,7 +13,7 @@ resource "aws_cloudwatch_log_metric_filter" "this" {
 resource "aws_cloudwatch_metric_alarm" "error_log_alarm" {
   alarm_name                = "${var.project_id}-${var.env}-application-error-rate"
   comparison_operator       = "GreaterThanOrEqualToThreshold"
-  evaluation_periods        = var.evaluate_periods
+  evaluation_periods        = var.evaluation_periods
   threshold                 = var.threshold
   alarm_description         = "Application error rate has exceeded ${var.threshold}%"
   ok_actions                = var.ok_actions
