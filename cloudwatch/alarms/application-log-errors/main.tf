@@ -15,7 +15,7 @@ resource "aws_cloudwatch_metric_alarm" "error_log_alarm" {
   comparison_operator       = "GreaterThanOrEqualToThreshold"
   evaluation_periods        = var.evaluate_periods
   threshold                 = var.threshold
-  alarm_description         = "Application error rate has exceeded ${threshold}%"
+  alarm_description         = "Application error rate has exceeded ${var.threshold}%"
   ok_actions                = var.ok_actions
   alarm_actions             = var.alarm_actions
   insufficient_data_actions = var.insufficient_data_actions

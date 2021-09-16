@@ -12,8 +12,8 @@ A module for handling application error logs and alarming on them based on thres
 
 ```tf
 module "application_error_alarm" {
-    source             = "github.com/Jareechang/tf-modules//cloudwatch/alarms/application-log-errors?ref=v1.0.8"
-    evaluation_preiods = "2"
+    source             = "github.com/Jareechang/tf-modules//cloudwatch/alarms/application-log-errors?ref=v1.0.9"
+    evaluation_periods = "2"
     threshold          = "10"
     arn_suffix         = aws_lb.arn_suffix 
     project_id         = "my-test-project" 
