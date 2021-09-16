@@ -12,6 +12,7 @@ A few re-usable TF modules to speed up the dev process.
 - **Cloudwatch**   
   - **Alarms:**  
     - [ALB - Http error rate](./cloudwatch/alarms/alb-http-errors/README.md)
+    - [Cloudwatch Logs - Application Errors](./cloudwatch/alarms/application-log-errors/README.md)
 
 ### Versioning with tags
 
