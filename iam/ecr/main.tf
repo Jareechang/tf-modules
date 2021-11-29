@@ -69,7 +69,7 @@ data "aws_iam_policy_document" "ci_server_access" {
 
     ## Extend with iam permission statements
     dynamic "statement" {
-        for_each = var.other_iam_statements
+        for_each = var.other_iam_statements != null ? var.other_iam_statements : []
         content {
             actions   = statement.value["actions"]
             effect    = statement.value["effect"]

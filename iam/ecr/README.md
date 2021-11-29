@@ -43,7 +43,7 @@ No requirements.
 | create\_ci\_user | Whether or not to create a CI/CD role | `bool` | `false` | no |
 | ecr\_resource\_arns | The target ECR arn to add permissions to | `list(string)` | <pre>[<br>  ""<br>]</pre> | no |
 | env | Environment for the project | `string` | `"dev"` | no |
-| other\_iam\_statements | Additional iam permission statement to be added | <pre>map(object({<br>        actions   = list(string)<br>        effect    = string<br>        resources = list(string)<br>    }))</pre> | n/a | yes |
+| other\_iam\_statements | Additional iam permission statement to be added | <pre>map(object({<br>        actions   = list(string)<br>        effect    = string<br>        resources = list(string)<br>    }))</pre> | n/a | no |
 | project\_id | Unique project ID | `string` | `"web"` | no |
 
 ## Outputs

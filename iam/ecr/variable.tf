@@ -28,5 +28,6 @@ variable "other_iam_statements" {
         effect    = string
         resources = list(string)
     }))
+    default = null
     description = "Additional iam permission statement to be added"
 }
