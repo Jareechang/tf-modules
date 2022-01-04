@@ -1,45 +1,45 @@
 data "aws_iam_policy_document" "ecs_execution" {
-    version = "2012-10-17"
+  version = "2012-10-17"
 
-    # Baseline
-    statement {
-        actions = [
-            "ecr:GetAuthorizationToken",
-            "ecr:BatchCheckLayerAvailability",
-            "ecr:GetDownloadUrlForLayer",
-            "ecr:BatchGetImage",
-            "logs:CreateLogStream",
-            "logs:PutLogEvents"
-        ]
-        effect = "Allow"
-        resources = [
-            "*"
-        ]
-    }
+  # Baseline
+  statement {
+    actions = [
+      "ecr:GetAuthorizationToken",
+      "ecr:BatchCheckLayerAvailability",
+      "ecr:GetDownloadUrlForLayer",
+      "ecr:BatchGetImage",
+      "logs:CreateLogStream",
+      "logs:PutLogEvents"
+    ]
+    effect = "Allow"
+    resources = [
+      "*"
+    ]
+  }
 
-    ## Extend with iam permission statements
-    dynamic "statement" {
-        for_each = var.ecs_execution_other_iam_statements
-        content {
-            actions   = statement.value["actions"]
-            effect    = statement.value["effect"]
-            resources = statement.value["resources"]
-        }
+  ## Extend with iam permission statements
+  dynamic "statement" {
+    for_each = var.ecs_execution_other_iam_statements != null ? var.ecs_execution_other_iam_statements : {}
+    content {
+      actions   = statement.value["actions"]
+      effect    = statement.value["effect"]
+      resources = statement.value["resources"]
     }
+  }
 }
 
 data "aws_iam_policy_document" "ecs_task" {
-    version = "2012-10-17"
+  version = "2012-10-17"
 
-    ## Extend with iam permission statements
-    dynamic "statement" {
-        for_each = var.ecs_task_other_iam_statements
-        content {
-            actions   = statement.value["actions"]
-            effect    = statement.value["effect"]
-            resources = statement.value["resources"]
-        }
+  ## Extend with iam permission statements
+  dynamic "statement" {
+    for_each = var.ecs_task_other_iam_statements != null ? var.ecs_task_other_iam_statements : {}
+    content {
+      actions   = statement.value["actions"]
+      effect    = statement.value["effect"]
+      resources = statement.value["resources"]
     }
+  }
 }
 
 resource "aws_iam_policy" "ecs_execution" {
@@ -57,17 +57,17 @@ resource "aws_iam_policy" "ecs_task" {
 }
 
 data "aws_iam_policy_document" "ecs_task_assume_role" {
-    statement {
-        effect  = "Allow"
-        actions = ["sts:AssumeRole"]
+  statement {
+    effect  = "Allow"
+    actions = ["sts:AssumeRole"]
 
-        principals {
-            type        = "Service"
-            identifiers = [
-                "ecs-tasks.amazonaws.com"
-            ]
-        }
+    principals {
+      type        = "Service"
+      identifiers = [
+        "ecs-tasks.amazonaws.com"
+      ]
     }
+  }
 }
 
 resource "aws_iam_role" "ecs_task_role" {
