@@ -46,10 +46,6 @@ module "ecs_roles" {
 }
 ```
 
-## TODO
-
-- Add policy statement extensions for ECS task roles (ie for accessing db)
-
 ## Requirements
 
 No requirements.
@@ -67,6 +63,7 @@ No requirements.
 | create\_ecs\_execution\_role | Create an ECS execution role | `bool` | n/a | yes |
 | create\_ecs\_task\_role | Create an ECS task role | `bool` | n/a | yes |
 | ecs\_execution\_other\_iam\_statements | Additional ECS execution iam permission statement to be added | <pre>map(object({<br>        actions   = list(string)<br>        effect    = string<br>        resources = list(string)<br>    }))</pre> | n/a | yes |
+| ecs\_task\_other\_iam\_statements | Additional ECS execution iam permission statement to be added | <pre>map(object({<br>        actions   = list(string)<br>        effect    = string<br>        resources = list(string)<br>    }))</pre> | n/a | yes |
 
 ## Outputs
 
