@@ -62,8 +62,8 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | create\_ecs\_execution\_role | Create an ECS execution role | `bool` | n/a | yes |
 | create\_ecs\_task\_role | Create an ECS task role | `bool` | n/a | yes |
-| ecs\_execution\_other\_iam\_statements | Additional ECS execution iam permission statement to be added | <pre>map(object({<br>    actions   = list(string)<br>    effect    = string<br>    resources = list(string)<br>  }))</pre> | `null` | no |
-| ecs\_task\_other\_iam\_statements | Additional ECS execution iam permission statement to be added | <pre>map(object({<br>    actions   = list(string)<br>    effect    = string<br>    resources = list(string)<br>  }))</pre> | `null` | no |
+| ecs\_execution\_iam\_statements | IAM permission statement(s) to be added to the ECS Execution role | <pre>map(object({<br>    actions   = list(string)<br>    effect    = string<br>    resources = list(string)<br>  }))</pre> | `null` | no |
+| ecs\_task\_iam\_statements | IAM permission statement(s) to be added to the ECS Task role | <pre>map(object({<br>    actions   = list(string)<br>    effect    = string<br>    resources = list(string)<br>  }))</pre> | `null` | no |
 
 ## Outputs
 

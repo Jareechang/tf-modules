@@ -1,21 +1,21 @@
-variable "ecs_execution_other_iam_statements" {
+variable "ecs_execution_iam_statements" {
   type = map(object({
     actions   = list(string)
     effect    = string
     resources = list(string)
   }))
   default = null
-  description = "Additional ECS execution iam permission statement to be added"
+  description = "IAM permission statement(s) to be added to the ECS Execution role"
 }
 
-variable "ecs_task_other_iam_statements" {
+variable "ecs_task_iam_statements" {
   type = map(object({
     actions   = list(string)
     effect    = string
     resources = list(string)
   }))
   default = null
-  description = "Additional ECS execution iam permission statement to be added"
+  description = "IAM permission statement(s) to be added to the ECS Task role"
 }
 
 variable "create_ecs_execution_role" {

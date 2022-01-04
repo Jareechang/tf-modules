@@ -19,7 +19,7 @@ data "aws_iam_policy_document" "ecs_execution" {
 
   ## Extend with iam permission statements
   dynamic "statement" {
-    for_each = var.ecs_execution_other_iam_statements != null ? var.ecs_execution_other_iam_statements : {}
+    for_each = var.ecs_execution_iam_statements != null ? var.ecs_execution_iam_statements : {}
     content {
       actions   = statement.value["actions"]
       effect    = statement.value["effect"]
@@ -33,7 +33,7 @@ data "aws_iam_policy_document" "ecs_task" {
 
   ## Extend with iam permission statements
   dynamic "statement" {
-    for_each = var.ecs_task_other_iam_statements != null ? var.ecs_task_other_iam_statements : {}
+    for_each = var.ecs_task_iam_statements != null ? var.ecs_task_iam_statements : {}
     content {
       actions   = statement.value["actions"]
       effect    = statement.value["effect"]
