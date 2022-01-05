@@ -15,7 +15,8 @@ resource "aws_vpc" "main" {
 
 #### Public subnets - internet facing  (lb, gateways)
 resource "aws_subnet" "public_subnets" {
-    count      = 2
+    # Minimum of two
+    count      = min(length(var.azs), length(var.subnet_public_cidrblock))
     vpc_id     = aws_vpc.main.id
     cidr_block = var.subnet_public_cidrblock[count.index]
     availability_zone = var.azs[count.index]
@@ -26,7 +27,7 @@ resource "aws_subnet" "public_subnets" {
 
 #### Private subnets - Internal facing (apps, db etc)
 resource "aws_subnet" "private_subnets" {
-    count      = 2
+    count      = min(length(var.azs), length(var.subnet_private_cidrblock))
     vpc_id     = aws_vpc.main.id
     cidr_block = var.subnet_private_cidrblock[count.index]
     availability_zone = var.azs[count.index]
@@ -78,7 +79,7 @@ resource "aws_route_table" "rt_public" {
 }
 
 resource "aws_route_table" "rt_private" {
-    count          = local.nat_gw_count 
+    count          = local.nat_gw_count
     vpc_id         = aws_vpc.main.id
     route {
         cidr_block = "0.0.0.0/0"
