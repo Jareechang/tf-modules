@@ -2,7 +2,7 @@ locals {
   # Only create if we have iam statements, otherwise don’t create a role
   create_ecs_task_role = (
     # specify to create task role
-    var.create_ecs_task_role
+    var.create_ecs_task_role == true
     # specify custom iam statements
     && var.ecs_task_iam_statements != null
   )
@@ -82,7 +82,7 @@ data "aws_iam_policy_document" "ecs_task_assume_role" {
 
 # Create roles
 resource "aws_iam_role" "ecs_task_role" {
-  count                = local.create_ecs_task_role ? 1 : 0)
+  count                = local.create_ecs_task_role ? 1 : 0
   name                 = "Policy-Ecs-Task-Role"
   assume_role_policy   = data.aws_iam_policy_document.ecs_task_assume_role.json
   description          = "IAM Role with permissions for ECS tasks"
