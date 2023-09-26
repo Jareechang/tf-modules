@@ -83,7 +83,7 @@ resource "aws_route_table" "rt_private" {
     vpc_id         = aws_vpc.main.id
     route {
         cidr_block = "0.0.0.0/0"
-        gateway_id = (
+        nat_gateway_id = (
             local.nat_gw_count > 2
             ? aws_nat_gateway.nat_public[count.index].id
             : aws_nat_gateway.nat_public[0].id
